@@ -1,14 +1,6 @@
-require './server'
-require 'rack-proxy'
+require 'sinatra/base'
+require './app'
 
-class AppProxy < Rack::Proxy
-  def rewrite_env(env)
-    env['HTTP_HOST'] = 'localhost:8080'
-    env
-  end
-end
+Dir.glob('./{helpers,controllers}/*.rb').each { |file| require file }
 
-run Rack::URLMap.new(
-  '/api' => Server,
-  '/' => AppProxy.new
-)
+map('/') { run CalbadOGQ::App }

@@ -2,13 +2,28 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (3.8.0)
+    crass (1.0.2)
+    firebase (0.2.6)
+      httpclient
+      json
+    httpclient (2.8.3)
+    json (2.1.0)
+    mini_portile2 (2.2.0)
     multi_json (1.12.1)
     mustermann (1.0.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
+    nokogumbo (1.4.13)
+      nokogiri
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
     rack-proxy (0.6.1)
       rack
+    sanitize (4.5.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.4.4)
+      nokogumbo (~> 1.4.1)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -27,7 +42,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  firebase
+  json
   rack-proxy
+  sanitize
   sinatra
   sinatra-contrib
 
