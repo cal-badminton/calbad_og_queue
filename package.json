@@ -4,8 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-    "react": "^15.4.2",
-    "reqwest": "^2.0.5"
+    "react": "^15.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",

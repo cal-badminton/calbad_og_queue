@@ -5,7 +5,8 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    './app/entry.js'
+    './public/js/index.js',
+    './public/js/fb_setup.js'
   ],
   output: {
     path: __dirname + '/dist',
