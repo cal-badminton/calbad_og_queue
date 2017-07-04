@@ -1,12 +1,12 @@
-const webpack = require('webpack');
+let webpack = require('webpack')
 
 module.exports = {
   context: __dirname,
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    './public/js/index.js',
-    './public/js/fb_setup.js'
+    './public/js/fb_setup.js',
+    './public/js/index.js'
   ],
   output: {
     path: __dirname + '/dist',

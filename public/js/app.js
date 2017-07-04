@@ -1,6 +1,6 @@
 let React = require("react")
 
-let CreatePersonModal = require("create-person-modal")
+let CreatePersonModal = require("./create-person-modal")
 
 
 class App extends React.Component {
@@ -29,14 +29,14 @@ class App extends React.Component {
           getIsOpen={this.isOpen.bind(this)}
           onRequestClose={this.closeModal.bind(this)}
         />
-        <form onSubmit=this.openModal>
+        <form>
           First name:
-          <input type="text" name="first_name"><br>
+          <input type="text" name="first_name" /><br/>
           Last name:
-          <input type="text" name="last_name"><br>
-          <input type="submit" value="Create">
+          <input type="text" name="last_name" /><br/>
+          <button type="button" onClick={this.openModal.bind(this)}>Create</button>
         </form>
-      <div>
+      </div>
     )
   }
 }
