@@ -1,5 +1,5 @@
-let React = require("react")
-let PropTypes = require("prop-types")
+import React from "react"
+import PropTypes from "prop-types"
 import ReactModal from 'react-modal'
 
 
@@ -23,4 +23,4 @@ CreatePersonModal.propTypes = {
   onRequestClose: PropTypes.func.isRequired,
 }
 
-module.exports = CreatePersonModal
+export default CreatePersonModal

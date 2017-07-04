@@ -1,6 +1,6 @@
-let React = require("react")
+import React from "react"
 
-let CreatePersonModal = require("./create-person-modal")
+import CreatePersonModal from "./create-person-modal"
 
 
 class App extends React.Component {
@@ -41,4 +41,4 @@ class App extends React.Component {
   }
 }
 
-module.exports = App
+export default App
