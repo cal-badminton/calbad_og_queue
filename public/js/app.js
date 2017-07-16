@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-import CreatePersonModal from "./create-person-modal"
+import CreatePersonModal from './create-person-modal'
 
 
 class App extends React.Component {
@@ -29,13 +29,7 @@ class App extends React.Component {
           getIsOpen={this.isOpen.bind(this)}
           onRequestClose={this.closeModal.bind(this)}
         />
-        <form>
-          First name:
-          <input type="text" name="first_name" /><br/>
-          Last name:
-          <input type="text" name="last_name" /><br/>
-          <button type="button" onClick={this.openModal.bind(this)}>Create</button>
-        </form>
+        <button type="button" onClick={this.openModal.bind(this)}>Create Person</button>
       </div>
     )
   }
