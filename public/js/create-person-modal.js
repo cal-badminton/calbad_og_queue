@@ -19,7 +19,10 @@ class CreatePersonModal extends React.Component {
     $.ajax({
       method: "GET",
       url: this.url,
-      success: (data) => console.log(data),
+      success: data => {
+        let persons = JSON.parse(data)
+        persons.map(person => console.log(person))
+      },
     })
   }
 
@@ -28,11 +31,13 @@ class CreatePersonModal extends React.Component {
     $.ajax({
       method: "PUT",
       url: this.url,
-      data: { name: 'justin', first_name: "justin", last_name: "hong" },
-      dataType: "json",
-      success: (params) => console.log(params),
+      data: JSON.stringify({ name: 'Justin' }),
+      contentType: "application/json",
+      success: params => {
+        console.log(params)
+        this.props.onRequestClose()
+      },
     })
-    this.props.onRequestClose()
   }
 
   render() {

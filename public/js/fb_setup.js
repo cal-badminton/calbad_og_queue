@@ -6,4 +6,5 @@ var config = {
   storageBucket: "calbad-og-queue.appspot.com",
   messagingSenderId: "972875103192"
 };
+console.log("initialize Firebase")
 firebase.initializeApp(config);

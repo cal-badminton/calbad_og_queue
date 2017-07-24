@@ -14,10 +14,6 @@ module CalbadOGQ
     @base_uri = 'https://calbad-og-queue.firebaseio.com/'
     @fb_root = Firebase::Client.new(@base_uri)
 
-    before do
-      @fb_url = @base_uri
-    end
-
     get '/' do
       erb :index
     end
