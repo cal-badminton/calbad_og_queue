@@ -3,7 +3,6 @@ import $ from 'jquery'
 import PropTypes from 'prop-types'
 import ReactModal from 'react-modal'
 
-
 class CreatePersonModal extends React.Component {
   static propTypes = {
     getIsOpen: PropTypes.func.isRequired,
@@ -26,15 +25,25 @@ class CreatePersonModal extends React.Component {
     })
   }
 
-  handleSave = () => {
+  handleSave = e => {
+    e.preventDefault()
+    let firstName = this.refs.firstName.value
+    let lastName = this.refs.lastName.value
+
+    if (!firstName || !lastName) return
+
+    let formData = {
+      first_name: firstName,
+      last_name: lastName,
+    }
+
     console.log("save")
     $.ajax({
       method: "PUT",
       url: this.url,
-      data: JSON.stringify({ name: 'Justin' }),
+      data: JSON.stringify(formData),
       contentType: "application/json",
       success: params => {
-        console.log(params)
         this.props.onRequestClose()
       },
     })
@@ -47,12 +56,14 @@ class CreatePersonModal extends React.Component {
         onRequestClose={this.props.onRequestClose}
         contentLabel="Create Person"
       >
-        First name:
-        <input type="text" name="first_name" /><br/>
-        Last name:
-        <input type="text" name="last_name" /><br/>
-        <button onClick={this.handleSave}>Save</button>
-        <button onClick={this.showPersons}>Show Persons</button>
+        <form onSubmit={this.handleSave}>
+          First name:
+          <input ref="firstName" type="text" name="firstName" /><br/>
+          Last name:
+          <input ref="lastName" type="text" name="lastName" /><br/>
+          <input type="submit" value="Save" />
+          <button onClick={this.showPersons}>Show Persons</button>
+        </form>
       </ReactModal>
     )
   }

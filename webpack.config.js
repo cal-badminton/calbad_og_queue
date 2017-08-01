@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.css', '.scss']
   },
   module: {
     loaders: [
@@ -26,6 +26,16 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /(node_modules|bower_components)/,
         loaders: ["babel-loader"]
+      },
+      {
+        test: /\.css$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "style-loader!css-loader"
+      },
+      {
+        test: /\.scss$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "style-loader!css-loader!sass-loader"
       }
     ]
   },
