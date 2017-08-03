@@ -1,8 +1,10 @@
 import React from 'react'
 import Select from 'react-select'
 import $ from 'jquery'
+import _ from 'underscore'
 
 import CreatePersonModal from './create-person-modal'
+import CourtComponent from './court-component'
 
 
 class App extends React.Component {
@@ -15,6 +17,7 @@ class App extends React.Component {
       isModalOpen: false,
       name: "Nobody",
       personOptions: this.getPersonOptions(),
+      courtNum: null,
     }
   }
 
@@ -29,6 +32,23 @@ class App extends React.Component {
         this.setState({ personOptions: options })
       },
     })
+  }
+
+  formatCourts() {
+    let { courtNum } = this.state
+    let courts = []
+    if (courtNum) {
+      for (let i = 0; i < this.state.courtNum; i++) {
+        courts.push(
+          <CourtComponent key={`court ${i}`} />
+        )
+      }
+    }
+    return (
+      <div className="courts-container">
+        {courts}
+      </div>
+    )
   }
 
   openModal = () => {
@@ -58,6 +78,13 @@ class App extends React.Component {
           onRequestClose={this.closeModal.bind(this)}
         />
         <button type="button" onClick={this.openModal.bind(this)}>Create Person</button>
+        <Select
+          name="form-field-court-num"
+          value="How many courts?"
+          options={_.range(1, 7).map(num => ({ value: num, label: num }))}
+          onChange={courtNum => this.setState({ courtNum: courtNum.label })}
+        />
+        {this.formatCourts()}
       </div>
     )
   }
