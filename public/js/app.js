@@ -5,6 +5,7 @@ import _ from 'underscore'
 
 import CreatePersonModal from './create-person-modal'
 import CourtComponent from './court-component'
+import '../stylesheets/styles.styl'
 
 
 class App extends React.Component {
@@ -57,6 +58,7 @@ class App extends React.Component {
 
   closeModal = () => {
     this.setState({ isModalOpen: false })
+    this.getPersonOptions()
   }
 
   isOpen() {
@@ -66,6 +68,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div className="header">
+          <img src="./imgs/calbad_logo.png"></img>
+          <a className="header-link" href="/">CALBAD OGQ</a>
+        </div>
         <div className="whoami">I am {this.state.name}.</div>
         <Select
           name="form-field-name"

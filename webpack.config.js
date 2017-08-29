@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css', '.scss']
+    extensions: ['.js', '.jsx', '.css', '.scss', '.styl']
   },
   module: {
     loaders: [
@@ -36,6 +36,10 @@ module.exports = {
         test: /\.scss$/,
         exclude: /(node_modules|bower_components)/,
         loader: "style-loader!css-loader!sass-loader"
+      },
+      {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
       }
     ]
   },
